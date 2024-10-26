@@ -6,6 +6,7 @@ metadata:
 spec:
   service_type: clusterip
   ingress_type: ingress
+  ingress_class_name: kong
   ingress_hosts:
     - hostname: awx.apps.k8s.vdude.io
       tls_secret: aws-cert
