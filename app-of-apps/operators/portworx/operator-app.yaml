@@ -7,7 +7,7 @@ metadata:
     argocd.argoproj.io/compare-options: IgnoreExtraneous
 spec:
   destination:
-    namespace: portworx
+    namespace: kube-system
     server: https://kubernetes.default.svc
   project: default
   source:
