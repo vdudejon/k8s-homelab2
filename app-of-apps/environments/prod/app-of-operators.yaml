@@ -9,7 +9,7 @@ spec:
     namespace: argocd
     server: https://kubernetes.default.svc
   source:
-    path: apps-of-apps/operators
+    path: app-of-apps/operators
     repoURL: git@github.com:vdudejon/k8s-homelab2.git
     targetRevision: HEAD
     directory:
