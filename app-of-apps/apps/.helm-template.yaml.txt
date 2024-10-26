@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: <Name of App>
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
+spec:
+  project: default
+  source:
+    chart: <chart name>>
+    repoURL: <helm repo>
+    targetRevision: <helm chart version>
+    helm:
+      releaseName: <helm name>
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: <namespace of app>
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

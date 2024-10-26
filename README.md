@@ -148,3 +148,5 @@ I tried to put this in the bootstrap but had a lot of trouble.
     ```
 
 5. Log in to ArgoCD using user `admin` and the password from above at https://argocd.apps.k8s.vdude.io
+
+6. Configure the repo, then add in the `app-of-apps` and `app-of-operator` apps from `app-of-apps/environments/prod`
