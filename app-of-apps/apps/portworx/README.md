@@ -13,3 +13,12 @@ Once you have the manifest, convert the secret part into a sealed secret:
 4. Delete `secret.yaml`
 
 Paste the `StorageCluster` manifest into `portworx.yaml`
+
+## Troubleshooting Portworx
+You can use the `pxctl` command from pods running the Portworx cluster.
+    ```bash
+    kubectl -n portworx get pods -l name=portworx
+    kubectl -n portworx exec -it px-cluster-<longname> -- /bin/sh
+    pxctl status
+    ...
+    ```
