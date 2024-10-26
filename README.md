@@ -1,7 +1,7 @@
 # k8s-homelab2
-My second homelab, because OpenShift is too hungry
+My second k3s homelab, because OpenShift is too hungry
 
-The goal is to install k3s in HA mode on 3 servers, using Kube VIP to load balance them.  Portworx community edition will be used for container storage.  NFS will be used for large/long-term storage.  ArgoCD for as much past initial configuration as possible.
+The goal is to install k3s in HA mode on 3 servers, using Kube VIP to load balance them.  Portworx Community Edition will be used for container storage.  NFS will be used for large/long-term storage.  Kong Ingress Controller for Ingress.  ArgoCD for as much past initial configuration as possible.
 
 ## Prep
 ### DNS

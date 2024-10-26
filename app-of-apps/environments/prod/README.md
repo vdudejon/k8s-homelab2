@@ -1,0 +1,1 @@
+App-of-apps.yaml needs to be added to ArgoCD Manually, but from there it will install apps under the app-of-apps/apps directory automatically.
