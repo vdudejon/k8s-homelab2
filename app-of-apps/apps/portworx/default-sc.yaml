@@ -6,6 +6,6 @@ metadata:
     storageclass.kubernetes.io/is-default-class: "true"
 provisioner: pxd.portworx.com
 parameters:
-  repl: 2
+  repl: '2'
 reclaimPolicy: Delete
 allowVolumeExpansion: true
