@@ -1,15 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: app-of-apps
+  name: app-of-operators
   annotations:
-    argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   destination:
     namespace: argocd
     server: https://kubernetes.default.svc
   source:
-    path: apps-of-apps/apps
+    path: apps-of-apps/operators
     repoURL: git@github.com:vdudejon/k8s-homelab2.git
     targetRevision: HEAD
     directory:
