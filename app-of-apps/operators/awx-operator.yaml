@@ -11,6 +11,7 @@ spec:
   source:
     chart: awx-operator 
     repoURL: https://ansible-community.github.io/awx-operator-helm/
+    targetRevision: 2.19.1
     helm:
       releaseName: awx-operator 
   destination:
