@@ -9,7 +9,7 @@ spec:
   ingress_class_name: kong
   ingress_hosts:
     - hostname: awx.apps.k8s.vdude.io
-      tls_secret: aws-cert
+      tls_secret: awx-cert
   postgres_data_volume_init: true
   postgres_init_container_commands: |
     chown 26:0 /var/lib/pgsql/data
