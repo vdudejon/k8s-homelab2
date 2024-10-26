@@ -7,5 +7,5 @@ spec:
   service_type: clusterip
   ingress_type: ingress
   ingress_hosts:
-    - hostname: aws.apps.k8s.vdude.io
+    - hostname: awx.apps.k8s.vdude.io
       tls_secret: aws-cert
