@@ -16,7 +16,7 @@ spec:
       releaseName: awx-operator 
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: awx-operator
+    namespace: awx
   syncPolicy:
     automated:
       prune: true
