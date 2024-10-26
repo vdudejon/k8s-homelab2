@@ -135,10 +135,10 @@ I tried to put this in the bootstrap but had a lot of trouble.
             - path: /
               pathType: ImplementationSpecific
               backend:
-              service:
-                name: argocd-server
-                port:
-                  number: 80
+                service:
+                    name: argocd-server
+                    port:
+                    number: 80
     ' | kubectl apply -f -
     ```
 

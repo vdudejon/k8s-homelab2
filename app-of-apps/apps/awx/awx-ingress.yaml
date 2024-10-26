@@ -18,7 +18,7 @@
             - path: /
               pathType: ImplementationSpecific
               backend:
-              service:
-                name: awx-service
-                port:
-                  number: 80
+                service:
+                  name: awx-service
+                  port:
+                    number: 80
