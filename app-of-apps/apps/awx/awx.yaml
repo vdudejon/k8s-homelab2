@@ -2,6 +2,7 @@ apiVersion: awx.ansible.com/v1beta1
 kind: AWX
 metadata:
   name: awx
+  namespace: awx
 spec:
   service_type: clusterip
   ingress_type: ingress
