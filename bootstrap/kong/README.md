@@ -21,6 +21,7 @@ apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
   name: kong
+  namespace: kong
 spec:
   gatewayClassName: kong
   listeners:
