@@ -10,7 +10,7 @@ spec:
   project: default
   source:
     chart: kuma
-    repoURL: kuma
+    repoURL: https://kumahq.github.io/charts
     targetRevision: 2.9.0
     helm:
       releaseName: kuma
