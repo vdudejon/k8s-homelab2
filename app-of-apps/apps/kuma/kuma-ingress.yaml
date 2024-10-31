@@ -19,6 +19,6 @@
             pathType: ImplementationSpecific
             backend:
               service:
-                name: kuma-service
+                name: kuma-control-plane
                 port:
-                  number: 80
+                  number: 5680
