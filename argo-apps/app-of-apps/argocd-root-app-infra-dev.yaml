@@ -1,0 +1,19 @@
+# This is the root application or App of Apps that will be created in ArgoCD
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: infrastructure-root-app
+  namespace: argo-cd
+spec:
+  project: infrastructure
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argo-cd
+  source:
+    repoURL: 'git@github.com:vdudejon/k8s-homelab2.git'
+    targetRevision: main
+    path: argo-apps/app-of-apps/overlays/dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

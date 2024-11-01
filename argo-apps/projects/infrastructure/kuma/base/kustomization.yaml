@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - namespace.yaml
+
+# Define the remote Helm chart details
+helmCharts:
+  - name: kuma            # Name of the chart in the Helm repository
+    version: 2.9.0       # Specific chart version to pull (optional)
+    releaseName: kuma      # Release name for the deployment
+    repo: https://kumahq.github.io/charts  # Remote Helm repository URL
+    # valuesFile: values.yaml  # Path to your custom values file (if needed)
+    namespace: kuma         # Namespace where resources will be deployed
+    apiVersions:
+      - gateway.networking.k8s.io/v1

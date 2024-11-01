@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kuma-lb
+  namespace: kuma
+  annotations:
+    lb.ssccloud.com/proxy-service-name: kong-gateway-proxy
+    lb.ssccloud.com/proxy-service-namespace: kong
+    lb.ssccloud.com/hostname: kuma.vme-dev
+spec:
+  type: LoadBalancer
+  externalTrafficPolicy: Local
+  loadBalancerClass: lb.ssccloud.com
+  allocateLoadBalancerNodePorts: false
+  ports:
+    - port: 5861
+      name: http-api-server
+      targetPort: 5861
