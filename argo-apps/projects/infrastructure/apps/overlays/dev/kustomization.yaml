@@ -3,5 +3,5 @@ kind: Kustomization
 
 resources:
   - argo-cd-app.yaml
-  # - kong-app.yaml
+  - kong-app.yaml
   # - kuma-app.yaml
