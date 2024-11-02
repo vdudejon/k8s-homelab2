@@ -4,7 +4,7 @@ kind: Kustomization
 resources:
   - ../../base
   - portworx.yaml
+  - sealed-secret.yaml
 
 patchesStrategicMerge:
   - default-sc.yaml
-  - sealed-secret.yaml
