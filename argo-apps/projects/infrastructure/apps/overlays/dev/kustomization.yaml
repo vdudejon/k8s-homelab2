@@ -5,4 +5,6 @@ resources:
   - argo-cd-app.yaml
   - kong-app.yaml
   - kuma-app.yaml
+  - portworx-operator-app.yaml
+  - portworx-app.yaml
   - sealed-secrets-app.yaml
