@@ -19,6 +19,6 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: grafana-control-plane
+                name: grafana
                 port:
-                  number: 5681
+                  number: 80
