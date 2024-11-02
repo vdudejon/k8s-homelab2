@@ -21,4 +21,4 @@ spec:
               service:
                 name: kuma-control-plane
                 port:
-                  number: 5680
+                  number: 5681
