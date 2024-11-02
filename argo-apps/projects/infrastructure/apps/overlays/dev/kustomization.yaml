@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
   - argo-cd-app.yaml
+  - awx-operator-app.yaml
   - kong-app.yaml
   - kuma-app.yaml
   - portworx-operator-app.yaml
