@@ -5,4 +5,4 @@ resources:
   - ../../base
   - ingress.yaml
   - mesh.yaml
-  - mtp-allow-all.yaml
+  # - mtp-allow-all.yaml
