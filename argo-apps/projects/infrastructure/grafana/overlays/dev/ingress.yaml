@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: grafana-route
+  namespace: grafana
+  annotations:
+    cert-manager.io/cluster-issuer: cloudflare-issuer
+spec:
+  ingressClassName: kong
+  tls:
+    - secretName: grafana-cert
+      hosts:
+        - grafana.apps.k8s.vdude.io
+  rules:
+    - host: grafana.apps.k8s.vdude.io
+      http:
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: grafana-control-plane
+                port:
+                  number: 5681

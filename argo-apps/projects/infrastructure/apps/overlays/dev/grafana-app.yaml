@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: { name }
+  name: grafana
   namespace: argo-cd
   annotations:
     argocd.argoproj.io/sync-wave: "1"
@@ -10,11 +10,11 @@ spec:
   project: infrastructure
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: { name }
+    namespace: grafana
   source:
     repoURL: "git@github.com:vdudejon/k8s-homelab2.git"
     targetRevision: main
-    path: argo-apps/projects/infrastructure/{ name }/overlays/dev
+    path: argo-apps/projects/infrastructure/grafana/overlays/dev
   syncPolicy:
     automated:
       prune: true
