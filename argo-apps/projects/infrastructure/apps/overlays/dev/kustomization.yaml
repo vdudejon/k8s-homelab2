@@ -11,3 +11,4 @@ resources:
   - portworx-operator-app.yaml
   - portworx-app.yaml
   - sealed-secrets-app.yaml
+  - victoriametrics-app.yaml

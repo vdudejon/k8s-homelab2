@@ -15,5 +15,5 @@ Ran into a weird issue where the pgsql server wouldn't deploy, it had errors lik
 
 By default, the admin user is admin and the password is available in the <resourcename>-admin-password secret. To retrieve the admin password, run:
 ```bash
-kubectl get secret awx-demo-admin-password -o jsonpath="{.data.password}" | base64 --decode ; echo
+kubectl -n awx get secret awx-admin-password -o jsonpath="{.data.password}" | base64 --decode ; echo
 ```
