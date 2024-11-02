@@ -1,4 +1,4 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: vm-k8s-stack
+  name: victoria-k8s-stack

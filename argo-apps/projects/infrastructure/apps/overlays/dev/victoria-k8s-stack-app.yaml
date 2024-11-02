@@ -1,0 +1,39 @@
+# See https://docs.victoriametrics.com/helm/victoriametrics-k8s-stack/#argocd-issues
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: victoria-k8s-stack
+  namespace: argo-cd
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
+spec:
+  project: infrastructure
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: victoria-k8s-stack
+  source:
+    repoURL: "git@github.com:vdudejon/k8s-homelab2.git"
+    targetRevision: main
+    path: argo-apps/projects/infrastructure/victoria-k8s-stack/overlays/dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      # https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/#respect-ignore-difference-configs
+      # argocd must also ignore difference during apply stage
+      # otherwise it ll silently override changes and cause a problem
+      - RespectIgnoreDifferences=true
+  ignoreDifferences:
+    - group: ""
+      kind: Secret
+      name: victoria-k8s-stack-validation
+      namespace: kube-system
+      jsonPointers:
+        - /data
+    - group: admissionregistration.k8s.io
+      kind: ValidatingWebhookConfiguration
+      name: victoria-k8s-stack-admission
+      jqPathExpressions:
+        - ".webhooks[]?.clientConfig.caBundle"

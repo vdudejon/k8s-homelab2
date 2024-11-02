@@ -2,3 +2,7 @@ grafana:
   persistence:
     type: pvc
     enabled: true
+  sidecar:
+    dashboards:
+      additionalDashboardAnnotations:
+        argocd.argoproj.io/sync-options: ServerSideApply=true
