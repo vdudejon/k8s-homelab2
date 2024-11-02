@@ -5,6 +5,4 @@ resources:
   - ../../base
   - portworx.yaml
   - sealed-secret.yaml
-
-patches:
-  - patch-default-sc.yaml
+  - default-sc.yaml
