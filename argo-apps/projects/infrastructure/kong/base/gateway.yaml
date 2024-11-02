@@ -18,5 +18,3 @@ spec:
       allowedRoutes:
         namespaces:
           from: All
-      tls: # No certificates specified here, we will use cert manager automagic
-        mode: Terminate
