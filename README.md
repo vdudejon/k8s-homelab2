@@ -107,9 +107,9 @@ I tried to put this in the bootstrap but had a lot of trouble.  So let's install
       env:
         ...
     ```
-- For ArgoCD to use Kustomize with Helm, you need to update the config map after it is deployed.  This is in `argo-apps\projects\infrastructure\argo-cd\base\patch-configmap.yaml`
+- For ArgoCD to use Kustomize with Helm, you need to update the config map after it is deployed.  This is in `projects\infrastructure\argo-cd\base\patch-configmap.yaml`
 ## Installation
-1. Copy `values.yaml` and `patch-configmap.yaml` from `argo-apps\projects\infrastructure\argo-cd\base` to a machine that has Helm installed on it
+1. Copy `values.yaml` and `patch-configmap.yaml` from `projects\infrastructure\argo-cd\base` to a machine that has Helm installed on it
 2. Run:
     ```bash
     helm repo add argo https://argoproj.github.io/argo-helm
@@ -122,7 +122,7 @@ I tried to put this in the bootstrap but had a lot of trouble.  So let's install
     ```bash
     kubectl -n argocd apply -f patch-configmap.yaml
     ```
-4. Create an Ingress by copying the `ingress.yaml` file from `argo-apps\projects\infrastructure\argo-cd\overlays\dev`, or apply like so:
+4. Create an Ingress by copying the `ingress.yaml` file from `projects\infrastructure\argo-cd\overlays\dev`, or apply like so:
     ```bash
     echo '
     apiVersion: networking.k8s.io/v1
