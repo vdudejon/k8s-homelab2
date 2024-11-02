@@ -90,13 +90,10 @@ Get your API key from Cloudflare, and then add it to a secret that Cert Manager 
 
 
 ### Install ArgoCD
-I tried to put this in the bootstrap but had a lot of trouble.
-1. Install ArgoCD from the instructions at https://argo-cd.readthedocs.io/en/stable/getting_started/
-    ```bash
-    kubectl create namespace argocd
-    kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-    ```
-2. Edit the Argo deployment to disable tls, as tls will be terminated at the Ingress Controller.
+I tried to put this in the bootstrap but had a lot of trouble.  So let's install it semi-manually using Helm.
+
+### Important Notes
+- Since we are putting SSL certs at the Ingress Controller, TLS must be disabled on ArgoCD.  Using helm, this is specified in the values file.  If you use a manifest, you need to edit the container args after it is deployed like this:
     ```bash
     kubectl -n argocd edit deployment argocd-server
     ```
@@ -110,9 +107,22 @@ I tried to put this in the bootstrap but had a lot of trouble.
       env:
         ...
     ```
-    ArgoCD will automatically restart
-
-3. Create an Ingress:
+- For ArgoCD to use Kustomize with Helm, you need to update the config map after it is deployed.  This is in `argo-apps\projects\infrastructure\argo-cd\base\patch-configmap.yaml`
+## Installation
+1. Copy `values.yaml` and `patch-configmap.yaml` from `argo-apps\projects\infrastructure\argo-cd\base` to a machine that has Helm installed on it
+2. Run:
+    ```bash
+    helm repo add argo https://argoproj.github.io/argo-helm
+    helm install argo-cd argo/argo-cd \
+    --version 7.6.12 \
+    -n argo-cd --create-namespace \
+    -f values.yaml
+    ```
+3. After it is installed, run 
+    ```bash
+    kubectl -n argocd apply -f patch-configmap.yaml
+    ```
+4. Create an Ingress by copying the `ingress.yaml` file from `argo-apps\projects\infrastructure\argo-cd\overlays\dev`, or apply like so:
     ```bash
     echo '
     apiVersion: networking.k8s.io/v1
@@ -138,15 +148,19 @@ I tried to put this in the bootstrap but had a lot of trouble.
                 service:
                     name: argocd-server
                     port:
-                    number: 80
+                        number: 80
     ' | kubectl apply -f -
     ```
 
-4. Get the initial password
+5. Get the initial password
     ```bash
     kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 --decode; echo
     ```
 
-5. Log in to ArgoCD using user `admin` and the password from above at https://argocd.apps.k8s.vdude.io
+6. Log in to ArgoCD using user `admin` and the password from above at https://argocd.apps.k8s.vdude.io
 
-6. Configure the repo, then add in the `app-of-apps` and `app-of-operator` apps from `app-of-apps/environments/prod`
+7. Configure the repo, then add in the `argo-apps`
+
+8. ???
+
+9. Profit

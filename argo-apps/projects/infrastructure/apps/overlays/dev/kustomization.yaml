@@ -8,6 +8,7 @@ resources:
   - grafana-app.yaml
   - kong-app.yaml
   - kuma-app.yaml
+  - loki-app.yaml
   - portworx-operator-app.yaml
   - portworx-app.yaml
   - sealed-secrets-app.yaml

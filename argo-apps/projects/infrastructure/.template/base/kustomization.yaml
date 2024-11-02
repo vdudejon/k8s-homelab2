@@ -3,7 +3,6 @@ kind: Kustomization
 # resources:
 #   - namespace.yaml
 
-# Define the remote Helm chart details
 # helmCharts:
 #   - name: { chartname }
 #     version: 0.14.1
