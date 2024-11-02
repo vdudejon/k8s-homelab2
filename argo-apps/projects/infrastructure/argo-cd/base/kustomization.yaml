@@ -13,5 +13,5 @@ helmCharts:
     valuesFile: values.yaml # Path to your custom values file (if needed)
     namespace: argo-cd # Namespace where resources will be deployed
 
-patchesStrategicMerge:
+patches:
   - patch-configmap.yaml

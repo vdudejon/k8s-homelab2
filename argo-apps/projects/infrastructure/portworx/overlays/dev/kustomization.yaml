@@ -6,5 +6,5 @@ resources:
   - portworx.yaml
   - sealed-secret.yaml
 
-patchesStrategicMerge:
-  - default-sc.yaml
+patches:
+  - patch-default-sc.yaml
