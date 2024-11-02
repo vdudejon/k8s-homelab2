@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: vm-grafana-route
+  namespace: victoria-k8s-stack
+  annotations:
+    cert-manager.io/cluster-issuer: cloudflare-issuer
+spec:
+  ingressClassName: kong
+  tls:
+    - secretName: vm-grafana-cert
+      hosts:
+        - grafana.apps.k8s.vdude.io
+  rules:
+    - host: grafana.apps.k8s.vdude.io
+      http:
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: vm-k8s-grafana
+                port:
+                  number: 80
