@@ -10,7 +10,7 @@ spec:
   project: infrastructure
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: awx-operator
+    namespace: awx
   source:
     repoURL: "git@github.com:vdudejon/k8s-homelab2.git"
     targetRevision: main
