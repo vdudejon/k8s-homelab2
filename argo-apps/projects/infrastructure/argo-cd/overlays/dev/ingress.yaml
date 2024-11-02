@@ -1,20 +1,24 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: argo-cd-ingress
+  name: argocd-route
   namespace: argo-cd
   annotations:
-    konghq.com/strip-path: "true"
+    cert-manager.io/cluster-issuer: cloudflare-issuer
 spec:
-  ingressClassName: "kong"
+  ingressClassName: kong
+  tls:
+    - secretName: argocd-cert
+      hosts:
+        - argocd.apps.k8s.vdude.io
   rules:
-    - host: argo.apps.k8s.vdude.io
+    - host: argocd.apps.k8s.vdude.io
       http:
         paths:
           - path: /
-            pathType: Prefix
+            pathType: ImplementationSpecific
             backend:
               service:
-                name: argo-cd-argocd-server
+                name: argocd-server
                 port:
-                  number: 80
+                number: 80

@@ -6,12 +6,12 @@ resources:
 
 # Define the remote Helm chart details
 helmCharts:
-  - name: argo-cd            # Name of the chart in the Helm repository
-    version: 6.7.14       # Specific chart version to pull (optional)
-    releaseName: argo-cd      # Release name for the deployment
-    repo: https://argoproj.github.io/argo-helm  # Remote Helm repository URL
-    valuesFile: values.yaml  # Path to your custom values file (if needed)
-    namespace: argo-cd         # Namespace where resources will be deployed
+  - name: argo-cd # Name of the chart in the Helm repository
+    version: 6.7.14 # Specific chart version to pull (optional)
+    releaseName: argo-cd # Release name for the deployment
+    repo: https://argoproj.github.io/argo-helm # Remote Helm repository URL
+    valuesFile: values.yaml # Path to your custom values file (if needed)
+    namespace: argo-cd # Namespace where resources will be deployed
 
 patchesStrategicMerge:
   - patch-configmap.yaml

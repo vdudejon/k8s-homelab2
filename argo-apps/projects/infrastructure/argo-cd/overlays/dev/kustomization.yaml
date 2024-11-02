@@ -3,5 +3,4 @@ kind: Kustomization
 
 resources:
   - ../../base
-  - cloud-lb.yaml
   - ingress.yaml
