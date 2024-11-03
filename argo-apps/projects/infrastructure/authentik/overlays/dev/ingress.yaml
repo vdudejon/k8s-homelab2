@@ -5,6 +5,10 @@ metadata:
   namespace: authentik
   annotations:
     cert-manager.io/cluster-issuer: cloudflare-issuer
+    konghq.com/headers.X-Forwarded-Proto: "https"
+    konghq.com/headers.X-Forwarded-For: "true"
+    konghq.com/headers.Host: "true"
+    konghq.com/headers.Connection: "true"
 spec:
   ingressClassName: kong
   tls:
