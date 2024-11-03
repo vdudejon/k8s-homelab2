@@ -1,0 +1,26 @@
+ui:
+  enabled: true
+  activeVaultPodOnly: true
+  serviceType: "ClusterIP"
+server:
+  ha:
+    enabled: true
+    raft:
+      enabled: true
+      setNodeId: true
+      config: |
+        ui = true
+        cluster_name = "vault"
+        storage "raft" {
+            path    = "/vault/data/"
+        }
+        listener "tcp" {
+            address = "[::]:8200"
+            cluster_address = "[::]:8201"
+            tls_disable = 1
+        }
+        retry_join {
+          leader_api_addr = "http://vault-active:8200"
+        }
+        service_registration "kubernetes" {}
+        redirect_addr = "https://vault.apps.k8s.vdude.io"
