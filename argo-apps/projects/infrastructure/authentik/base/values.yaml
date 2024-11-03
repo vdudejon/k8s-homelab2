@@ -1,0 +1,21 @@
+authentik:
+  # -- Log level for server and worker
+  log_level: info
+  error_reporting:
+    enabled: true
+  # -- Secret key used for cookie signing and unique user IDs,
+  # don't change this after the first install
+  secret_key: "dyjlxypzS4fBFekZ5wOaUCGQKyVZCUbsfY9T0oU8XF+Navgxt6aEwG9YJyshTHZN/lKWw5qu1vnsie7T"
+  postgresql:
+    password: "tj8F5BmrvKGlWhdvqU6215LPJXWbMWeYaYKkunAdelwXnvbkn/sx2AUzecv7AQ4SYDE2a+SPm3I7pVdO"
+postgresql:
+  enabled: true
+  persistence:
+    size: 1Gi
+  auth:
+    password: "tj8F5BmrvKGlWhdvqU6215LPJXWbMWeYaYKkunAdelwXnvbkn/sx2AUzecv7AQ4SYDE2a+SPm3I7pVdO"
+redis:
+  enabled: true
+  master:
+    persistence:
+      size: 1Gi
