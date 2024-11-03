@@ -5,6 +5,7 @@ resources:
   - argo-cd-app.yaml
   - awx-app.yaml
   - awx-operator-app.yaml
+  - external-secrets-app.yaml
   # - grafana-app.yaml # Omitted on purpose
   - kong-app.yaml
   - kuma-app.yaml
