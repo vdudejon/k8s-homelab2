@@ -4,7 +4,7 @@ resources:
   - namespace.yaml
 
 helmCharts:
-  - name: loki-stack
+  - name: loki
     # version: 0.14.1
     releaseName: loki
     repo: https://grafana.github.io/helm-charts
