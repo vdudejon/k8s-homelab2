@@ -6,7 +6,3 @@ grafana:
     dashboards:
       additionalDashboardAnnotations:
         argocd.argoproj.io/sync-options: ServerSideApply=true
-  grafana.ini:
-    server:
-      domain: grafana.apps.k8s.vdude.io
-      root_url: https://grafana.apps.k8s.vdude.io
