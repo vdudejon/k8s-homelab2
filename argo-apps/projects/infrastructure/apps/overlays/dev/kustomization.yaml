@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
   - argo-cd-app.yaml
+  - authentik-app.yaml
   - awx-app.yaml
   - awx-operator-app.yaml
   - external-secrets-app.yaml

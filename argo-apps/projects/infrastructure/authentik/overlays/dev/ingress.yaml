@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: authentik-route
+  namespace: vault
+  annotations:
+    cert-manager.io/cluster-issuer: cloudflare-issuer
+spec:
+  ingressClassName: kong
+  tls:
+    - secretName: authentik-cert
+      hosts:
+        - auth.apps.k8s.vdude.io
+  rules:
+    - host: auth.apps.k8s.vdude.io
+      http:
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: authentik
+                port:
+                  number: 8200
