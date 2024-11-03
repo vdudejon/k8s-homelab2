@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: vault-ui-route
+  namespace: vault
+  annotations:
+    cert-manager.io/cluster-issuer: cloudflare-issuer
+spec:
+  ingressClassName: kong
+  tls:
+    - secretName: vault-ui-cert
+      hosts:
+        - vault.apps.k8s.vdude.io
+  rules:
+    - host: vault.apps.k8s.vdude.io
+      http:
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: vault-ui
+                port:
+                  number: 8200
