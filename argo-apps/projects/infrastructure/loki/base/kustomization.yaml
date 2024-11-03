@@ -10,3 +10,7 @@ helmCharts:
     repo: https://grafana.github.io/helm-charts
     valuesFile: values.yaml
     namespace: loki
+patches:
+  - path: patch-loki-jobs.yaml
+    target:
+      kind: Job
