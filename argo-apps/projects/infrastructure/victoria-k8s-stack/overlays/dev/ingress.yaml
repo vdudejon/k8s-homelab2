@@ -21,4 +21,4 @@ spec:
               service:
                 name: vm-k8s-grafana
                 port:
-                  number: 80
+                  number: 3000
