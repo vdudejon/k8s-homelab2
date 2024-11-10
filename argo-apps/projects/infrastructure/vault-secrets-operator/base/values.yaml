@@ -5,13 +5,13 @@ defaultVaultConnection:
 controller:
   manager:
     clientCache:
-      namespace: vso
       persistenceModel: direct-encrypted
       storageEncryption:
         enabled: true
         mount: k8s-auth-mount
         keyName: vso-client-cache
         transitMount: transit-mount
+        namespace: vso
         kubernetes:
           role: auth-role-operator
           serviceAccount: vault-secrets-operator-controller-manager
