@@ -1,5 +1,7 @@
 # vault-secrets-operator
 
+Vault Secrets Operator is another way of managing Kubernetes secrets by providing a way to sync Hashicorp Vault Secrets into normal kubernetes secrets.  This allows you to store the config in Git but keep the actual secrets secure in Vault.  
+
 Following the guide from Hashicorp here: https://developer.hashicorp.com/vault/tutorials/kubernetes/vault-secrets-operator which references the repo here: https://github.com/hashicorp-education/learn-vault-secrets-operator/tree/main
 
 ## Install Vault CLI
@@ -47,3 +49,6 @@ vault write auth/k8s-auth-mount/role/k8s-read-all \
    audience=vault \
    ttl=24h
 ```
+
+## Configure Kubernetes
+1. Create a service account and vault auth object.  There is a default Vault connection set in the `values.yaml` file, so it will know where to connect by default.  Otherwise normally you would also need to define a Vault Connection and reference that in the Vault Auth.  The service account and vault auth object must be created in EACH NAMESPACE that will sync a secret, because secrets are unique to namespaces.  This is why in our earlier role we set `bound_service_account_namespaces="*"`.  Now we can just create a service account named `vault-auth` in any namespace and it will work
