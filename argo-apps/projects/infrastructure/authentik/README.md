@@ -19,6 +19,11 @@ Follow the guide here: https://docs.goauthentik.io/integrations/services/grafana
 
 For this to work, you need to have the grafana.ini.server.domain and root_url set.  This can be done using `values.yaml` but that kind of breaks deploying into multiple environments.  There may be a better solution, possibly using environmental variables.
 
+I couldn't get roles syncing to work at first, and as a workaround I disabled syncing roles and made myself an administrator after logging in once.  To bypass the SSO auth, you need disable Auto-Login otherwise you won't be able to get back in as a local user.  Once you set yourself as an admin, you can turn auto login back on.
+
+I realized later I had a trailing " mark at the end of the role sync line.  Removing that made it work as expected.  You also need to enable the setting Allow assign Grafana Admin.
+`contains(groups, 'authentik Admins') && 'Admin' || contains(groups, 'Grafana Editors') && 'Editor' || 'Viewer'`
+
 ### Configuring Vault
 Follow the guide here: https://docs.goauthentik.io/integrations/services/hashicorp-vault/. 
 
@@ -36,4 +41,4 @@ vault write auth/oidc/role/reader \
       policies="reader"
 ```
 
-Need to learn more on how to grant additional permissions.
+Need to learn more on how to grant additional permissions.  
