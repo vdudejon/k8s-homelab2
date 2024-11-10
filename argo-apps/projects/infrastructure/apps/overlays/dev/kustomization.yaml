@@ -6,6 +6,7 @@ resources:
   - authentik-app.yaml
   - awx-app.yaml
   - awx-operator-app.yaml
+  - csi-driver-nfs-app.yaml
   - external-secrets-app.yaml
   # - grafana-app.yaml # Omitted on purpose
   - kong-app.yaml

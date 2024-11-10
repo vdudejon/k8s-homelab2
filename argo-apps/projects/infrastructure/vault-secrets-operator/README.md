@@ -38,7 +38,7 @@ vault policy write k8s-read-all k8s-read-all.json
 3. Enable the Kubernetes auth method and configure for your kubernetes cluster
 ```bash
 vault auth enable -path k8s-auth-mount kubernetes
-vault write auth/k8s-auth-mount/config kubernetes_host="https://kubernetes.devault.svc:443"
+vault write auth/k8s-auth-mount/config kubernetes_host="https://kubernetes.default.svc:443"
 ```
 4. Create a Vault Role on the kubernetes auth mount that associates a service account to the policy. In my example, I will allow any service account named `vault-auth` in any namespace read access to all secrets.  Again, this is not particularly secure.
 ```bash
@@ -108,3 +108,33 @@ spec:
   # Name of the CRD to authenticate to Vault
   vaultAuthRef: vault-auth
 ```
+
+3. The secret should sync and create a secret in kubernetes!
+```bash
+kubectl get secrets -n vso
+
+NAME                      TYPE     DATA   AGE
+k8s-test-secret           Opaque   3      19s
+```
+```bash
+kubectl describe secret k8s-test-secret -n vso
+
+Name:         k8s-test-secret
+Namespace:    vso
+Labels:       app.kubernetes.io/component=secret-sync
+              app.kubernetes.io/managed-by=hashicorp-vso
+              app.kubernetes.io/name=vault-secrets-operator
+              secrets.hashicorp.com/vso-ownerRefUID=00db9f2d-6401-4ff8-b12a-d22855ce0dcd
+Annotations:  <none>
+
+Type:  Opaque
+
+Data
+====
+password:  3 bytes
+username:  3 bytes
+_raw:      177 bytes
+```
+
+## Dynamic Secrets
+There's a bunch more to get Dynamic Secrets going, which are secrets the operator actually creates and manages for you and updates automatically.  I stopped before that part, but more info here: https://developer.hashicorp.com/vault/tutorials/kubernetes/vault-secrets-operator. It involves automatically restarting pods and all sorts of stuff.
