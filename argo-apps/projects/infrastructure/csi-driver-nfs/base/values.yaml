@@ -1,3 +1,3 @@
 controller:
-  runOnControlPlane: true
+  # runOnControlPlane: true
   replicas: 2
