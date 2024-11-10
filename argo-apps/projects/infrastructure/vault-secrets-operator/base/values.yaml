@@ -5,6 +5,7 @@ defaultVaultConnection:
 controller:
   manager:
     clientCache:
+      namespace: vso
       persistenceModel: direct-encrypted
       storageEncryption:
         enabled: true
@@ -15,4 +16,3 @@ controller:
           role: auth-role-operator
           serviceAccount: vault-secrets-operator-controller-manager
           tokenAudiences: ["vault"]
-          namespace: vso
