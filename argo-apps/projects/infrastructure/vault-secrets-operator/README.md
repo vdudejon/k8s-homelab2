@@ -51,4 +51,26 @@ vault write auth/k8s-auth-mount/role/k8s-read-all \
 ```
 
 ## Configure Kubernetes
-1. Create a service account and vault auth object.  There is a default Vault connection set in the `values.yaml` file, so it will know where to connect by default.  Otherwise normally you would also need to define a Vault Connection and reference that in the Vault Auth.  The service account and vault auth object must be created in EACH NAMESPACE that will sync a secret, because secrets are unique to namespaces.  This is why in our earlier role we set `bound_service_account_namespaces="*"`.  Now we can just create a service account named `vault-auth` in any namespace and it will work
+1. Create a service account and vault auth object.  There is a default Vault connection set in the `values.yaml` file, so it will know where to connect by default.  Otherwise normally you would also need to define a Vault Connection and reference that in the Vault Auth.  The service account and vault auth object must be created in EACH NAMESPACE that will sync a secret, because secrets are unique to namespaces.  This is why in our earlier role we set `bound_service_account_namespaces="*"`.  Now we can just create a service account named `vault-auth` in any namespace and it will work.  My files are in `overlays/dev` but here is an example:
+```yaml
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: vault-auth
+  namespace: vso
+---
+apiVersion: secrets.hashicorp.com/v1beta1
+kind: VaultAuth
+metadata:
+  name: vault-auth
+  namespace: vso
+spec:
+  method: kubernetes
+  mount: k8s-auth-mount
+  kubernetes:
+    role: k8s-read-all
+    serviceAccount: vault-auth
+    audiences:
+      - vault
+```
