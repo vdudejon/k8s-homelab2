@@ -8,5 +8,5 @@ helmCharts:
     version: 0.9.0
     releaseName: vso
     repo: https://helm.releases.hashicorp.com
-    #valuesFile: values.yaml
+    valuesFile: values.yaml
     namespace: vso
