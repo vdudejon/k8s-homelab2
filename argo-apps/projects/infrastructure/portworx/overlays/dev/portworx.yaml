@@ -31,3 +31,10 @@ spec:
     prometheus:
       enabled: true
       exportMetrics: true
+  nodes:
+    - selector:
+        labelSelector:
+          matchLabels:
+            portworx.io/node-type: "storageless"
+      storage:
+        devices: []
