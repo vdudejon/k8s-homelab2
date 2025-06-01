@@ -3,20 +3,20 @@ kind: Kustomization
 
 resources:
   - argo-cd-app.yaml
-  - authentik-app.yaml
-  - awx-app.yaml
+  # - authentik-app.yaml
+  # - awx-app.yaml
   - awx-operator-app.yaml
   - csi-driver-nfs-app.yaml
   - external-secrets-app.yaml
   # - grafana-app.yaml # Omitted on purpose
   - kong-app.yaml
   - kuma-app.yaml
-  - loki-app.yaml
+  # - loki-app.yaml
   - minio-operator-app.yaml
   - portworx-operator-app.yaml
   - portworx-app.yaml
   - sealed-secrets-app.yaml
   - vault-app.yaml
   - vault-secrets-operator-app.yaml
-  - victoria-k8s-stack-app.yaml
+  # - victoria-k8s-stack-app.yaml
   # - victoriametrics-app.yaml # Omitted on purpose
