@@ -16,7 +16,7 @@ resources:
   - portworx-operator-app.yaml
   - portworx-app.yaml
   - sealed-secrets-app.yaml
-  - vault-app.yaml
-  - vault-secrets-operator-app.yaml
+  # - vault-app.yaml
+  # - vault-secrets-operator-app.yaml
   # - victoria-k8s-stack-app.yaml
   # - victoriametrics-app.yaml # Omitted on purpose
