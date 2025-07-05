@@ -10,7 +10,7 @@ resources:
   - external-secrets-app.yaml
   # - grafana-app.yaml # Omitted on purpose
   - kong-app.yaml
-  - kuma-app.yaml
+  # - kuma-app.yaml
   # - loki-app.yaml
   - minio-operator-app.yaml
   - portworx-operator-app.yaml
