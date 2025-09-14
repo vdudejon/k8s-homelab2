@@ -16,6 +16,7 @@ resources:
   - minio-operator-app.yaml
   # - portworx-operator-app.yaml
   # - portworx-app.yaml
+  - scrypted-app.yaml
   - sealed-secrets-app.yaml
   # - vault-app.yaml
   # - vault-secrets-operator-app.yaml
