@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - namespace.yaml
+
+helmCharts:
+  - name: scrypted
+    version: 0.3.1
+    releaseName: scrypted
+    repo: https://bryopsida.github.io/helm
+    valuesFile: values.yaml
+    namespace: scrypted

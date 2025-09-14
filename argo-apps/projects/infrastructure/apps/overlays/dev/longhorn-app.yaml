@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: longhorn
+  namespace: argo-cd
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
+spec:
+  project: infrastructure
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: longhorn
+  source:
+    repoURL: "git@github.com:vdudejon/k8s-homelab2.git"
+    targetRevision: main
+    path: argo-apps/projects/infrastructure/longhorn/overlays/dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
