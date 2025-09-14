@@ -17,5 +17,5 @@ spec:
     path: argo-apps/projects/infrastructure/portworx/overlays/dev
   syncPolicy:
     automated:
-      prune: true
+      prune: false
       selfHeal: true
