@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: playit-agent
+  namespace: valheim
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: playit-agent
+  template:
+    metadata:
+      labels:
+        app: playit-agent
+    spec:
+      containers:
+      - name: playit
+        image: ghcr.io/playit-cloud/playit-agent:latest
+        env:
+        - name: SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: playit-secret
+              key: SECRET_KEY
+        # Use host network to access the LoadBalancer IP directly
+        # Alternatively, we can configure it to forward to the service
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
