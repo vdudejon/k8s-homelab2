@@ -10,7 +10,7 @@ spec:
   ports:
     - name: minecraft
       port: 25565
-      protocol: TCP
+      protocol: UDP
       targetPort: 25565
   selector:
     app: minecraft-server
