@@ -5,6 +5,9 @@ resources:
   - ../../base
   - playit-deployment.yaml
 
+patchesStrategicMerge:
+  - service-patch.yaml
+
 helmCharts:
   - name: valheim-k8s
     version: 2.0.1
