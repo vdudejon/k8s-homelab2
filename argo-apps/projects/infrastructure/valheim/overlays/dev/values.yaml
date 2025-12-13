@@ -2,12 +2,12 @@ worldName: WolfPack
 serverName: RoastyChestnuts
 passwordSecret: valheim-password
 storage:
-  kind: pvc
+  kind: persistentVolumeClaim
   pvc:
     storageClassName: longhorn
     size: 1Gi
 serverStorage:
-  kind: pvc
+  kind: persistentVolumeClaim
   pvc:
     storageClassName: longhorn
     size: 5Gi
