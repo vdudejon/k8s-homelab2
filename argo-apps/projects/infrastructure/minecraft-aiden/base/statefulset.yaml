@@ -20,6 +20,8 @@ spec:
           env:
             - name: EULA
               value: "TRUE"
+            - name: MOTD
+              value: "Aiden's Awesome Minecraft Server"
             - name: MODE
               value: "survival"
             - name: TYPE
@@ -76,12 +78,12 @@ spec:
             - name: minecraft-data
               mountPath: /data
   volumeClaimTemplates:
-  - metadata:
-      name: minecraft-data
-    spec:
-      accessModes:
-        - ReadWriteOnce
-      storageClassName: longhorn
-      resources:
-        requests:
-          storage: 50Gi
+    - metadata:
+        name: minecraft-data
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        storageClassName: longhorn
+        resources:
+          requests:
+            storage: 50Gi
