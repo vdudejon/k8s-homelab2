@@ -1,0 +1,85 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: minecraft-server
+  namespace: minecraft-aiden
+spec:
+  serviceName: minecraft-server
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minecraft-server
+  template:
+    metadata:
+      labels:
+        app: minecraft-server
+    spec:
+      containers:
+        - name: minecraft-server
+          image: itzg/minecraft-server:latest # Or specific version if needed
+          env:
+            - name: EULA
+              value: "TRUE"
+            - name: MODE
+              value: "survival"
+            - name: TYPE
+              value: "VANILLA"
+            - name: INIT_MEMORY
+              value: 8G
+            - name: MAX_MEMORY
+              value: 12G
+            # - name: CF_SERVER_MOD
+            #   value: "/modpacks/your-modpack.zip"
+            - name: ALLOW_FLIGHT
+              value: "FALSE"
+            - name: USE_AIKAR_FLAGS
+              value: "TRUE"
+            - name: RCON_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-rcon
+                  key: password
+          ports:
+            - name: minecraft
+              containerPort: 25565 # Expose port 25565
+            - name: minecraft-rcon
+              containerPort: 25575
+            - name: metrics
+              containerPort: 19565
+
+          resources:
+            requests:
+              cpu: 4 # Adjust based on expected workload
+              memory: "12Gi" # Adjust based on expected workload
+            limits:
+              cpu: 8 # Adjust based on expected workload
+              memory: "16Gi" # Adjust based on expected workload
+          readinessProbe:
+            exec:
+              command:
+                - mcstatus
+                - 127.0.0.1
+                - ping
+            initialDelaySeconds: 30
+            periodSeconds: 30
+          livenessProbe:
+            exec:
+              command:
+                - mcstatus
+                - 127.0.0.1
+                - ping
+            initialDelaySeconds: 30
+            periodSeconds: 30
+          volumeMounts:
+            - name: minecraft-data
+              mountPath: /data
+  volumeClaimTemplates:
+  - metadata:
+      name: minecraft-data
+    spec:
+      accessModes:
+        - ReadWriteOnce
+      storageClassName: longhorn
+      resources:
+        requests:
+          storage: 50Gi
