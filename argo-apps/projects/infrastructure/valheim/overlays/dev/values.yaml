@@ -1,6 +1,8 @@
 worldName: WolfPack
 serverName: RoastyChestnuts
 passwordSecret: valheim-password
+extraEnvironmentVars:
+  CROSSPLAY: "true"
 storage:
   kind: persistentVolumeClaim
   pvc:
