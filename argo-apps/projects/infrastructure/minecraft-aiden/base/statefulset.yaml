@@ -37,7 +37,7 @@ spec:
             - name: ENABLE_WHITELIST
               value: "TRUE"
             - name: WHITELIST
-              value: "moosethumbs,EpicNedia2,LeaveMyFernAlone"
+              value: "m00sethumbs,EpicNedia2,LeaveMyFernAlone"
             - name: USE_AIKAR_FLAGS
               value: "TRUE"
             - name: RCON_PASSWORD
