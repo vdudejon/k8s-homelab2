@@ -3,6 +3,7 @@ serverName: RoastyChestnuts
 passwordSecret: valheim-password
 extraEnvironmentVars:
   CROSSPLAY: "true"
+  SERVER_ARGS: "-modifier resources muchmore -modifier deathpenalty veryeasy -modifier portals casual"
 storage:
   kind: persistentVolumeClaim
   pvc:
