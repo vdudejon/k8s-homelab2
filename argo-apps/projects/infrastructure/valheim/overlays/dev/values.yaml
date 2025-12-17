@@ -8,7 +8,7 @@ storage:
   kind: persistentVolumeClaim
   pvc:
     storageClassName: longhorn
-    size: 1Gi
+    size: 10Gi
 serverStorage:
   kind: persistentVolumeClaim
   pvc:
