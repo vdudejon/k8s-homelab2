@@ -10,3 +10,4 @@ helmCharts:
     repo: https://victoriametrics.github.io/helm-charts/
     valuesFile: values.yaml
     namespace: victoria-k8s-stack
+    includeCRDs: true
