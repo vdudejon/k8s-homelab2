@@ -2,6 +2,8 @@ grafana:
   persistence:
     type: pvc
     enabled: true
+  deploymentStrategy:
+    type: Recreate
   sidecar:
     dashboards:
       additionalDashboardAnnotations:
