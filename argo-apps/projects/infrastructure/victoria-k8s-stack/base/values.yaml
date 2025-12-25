@@ -4,6 +4,7 @@ grafana:
     enabled: true
   deploymentStrategy:
     type: Recreate
+    rollingUpdate: null
   sidecar:
     dashboards:
       additionalDashboardAnnotations:
