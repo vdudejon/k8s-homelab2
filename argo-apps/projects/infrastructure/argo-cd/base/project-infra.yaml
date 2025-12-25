@@ -6,7 +6,7 @@ metadata:
 spec:
   description: "Project for core infrastructure applications"
   sourceRepos:
-    - git@github.com:vdudejon/k8s-homelab2.git
+    - https://github.com/vdudejon/k8s-homelab2.git
   destinations:
     - namespace: "*"
       server: https://kubernetes.default.svc

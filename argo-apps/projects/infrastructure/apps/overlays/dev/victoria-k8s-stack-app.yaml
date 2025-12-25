@@ -13,7 +13,7 @@ spec:
     server: "https://kubernetes.default.svc"
     namespace: victoria-k8s-stack
   source:
-    repoURL: "git@github.com:vdudejon/k8s-homelab2.git"
+    repoURL: "https://github.com/vdudejon/k8s-homelab2.git"
     targetRevision: main
     path: argo-apps/projects/infrastructure/victoria-k8s-stack/overlays/dev
   syncPolicy:

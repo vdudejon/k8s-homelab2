@@ -12,7 +12,7 @@ spec:
     server: 'https://kubernetes.default.svc'
     namespace: argo-cd
   source:
-    repoURL: 'git@github.com:vdudejon/k8s-homelab2.git'
+    repoURL: 'https://github.com/vdudejon/k8s-homelab2.git'
     targetRevision: main
     path: argo-apps/projects/infrastructure/argo-cd/overlays/dev
   syncPolicy:
