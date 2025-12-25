@@ -4,6 +4,7 @@ passwordSecret: valheim-password
 extraEnvironmentVars:
   CROSSPLAY: "true"
   SERVER_ARGS: "-modifier resources muchmore -modifier deathpenalty veryeasy -modifier portals casual"
+  UPDATE_CRON: "0 4 * * *"
 storage:
   kind: persistentVolumeClaim
   pvc:
