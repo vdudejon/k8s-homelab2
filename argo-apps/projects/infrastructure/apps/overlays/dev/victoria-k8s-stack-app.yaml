@@ -25,6 +25,7 @@ spec:
       # argocd must also ignore difference during apply stage
       # otherwise it ll silently override changes and cause a problem
       - RespectIgnoreDifferences=true
+      - ServerSideApply=true
   ignoreDifferences:
     - group: ""
       kind: Secret
