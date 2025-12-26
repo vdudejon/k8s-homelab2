@@ -1,3 +1,23 @@
+vmsingle:
+  spec:
+    resources:
+      limits:
+        cpu: "600m"
+        memory: "1500Mi"
+      requests:
+        cpu: "150m"
+        memory: "500Mi"
+
+vmagent:
+  spec:
+    resources:
+      limits:
+        cpu: "200m"
+        memory: "500Mi"
+      requests:
+        cpu: "50m"
+        memory: "200Mi"
+
 grafana:
   persistence:
     type: pvc
