@@ -42,5 +42,5 @@ spec:
     - group: admissionregistration.k8s.io
       kind: ValidatingWebhookConfiguration
       name: vm-k8s-victoria-metrics-operator-admission
-      jqPathExpressions:
-        - ".webhooks[]?.clientConfig.caBundle"
+      # jqPathExpressions:
+      #   - ".webhooks[]?.clientConfig.caBundle"
