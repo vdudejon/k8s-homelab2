@@ -31,6 +31,15 @@ vmalert:
               - vmsingle
           topologyKey: "kubernetes.io/hostname"
 
+kubeControllerManager:
+  enabled: false
+
+kubeScheduler:
+  enabled: false
+
+kubeEtcd:
+  enabled: false
+
 grafana:
   persistence:
     type: pvc
