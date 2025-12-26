@@ -18,6 +18,19 @@ vmagent:
         cpu: "50m"
         memory: "200Mi"
 
+vmalert:
+  spec:
+    affinity:
+      podAntiAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchExpressions:
+            - key: app.kubernetes.io/name
+              operator: In
+              values:
+              - vmsingle
+          topologyKey: "kubernetes.io/hostname"
+
 grafana:
   persistence:
     type: pvc
