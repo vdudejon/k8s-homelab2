@@ -33,6 +33,12 @@ spec:
       namespace: victoria-k8s-stack
       jsonPointers:
         - /data/admin-password
+    - group: apps
+      kind: Deployment
+      name: vm-k8s-grafana
+      namespace: victoria-k8s-stack
+      jsonPointers:
+        - /spec/template/metadata/annotations/checksum~1secret
     - group: ""
       kind: Secret
       name: vm-k8s-victoria-metrics-operator-validation
