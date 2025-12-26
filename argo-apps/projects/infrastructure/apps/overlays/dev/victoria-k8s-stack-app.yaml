@@ -35,12 +35,12 @@ spec:
         - /data/admin-password
     - group: ""
       kind: Secret
-      name: victoria-k8s-stack-validation
+      name: vm-k8s-victoria-metrics-operator-validation
       namespace: kube-system
       jsonPointers:
         - /data
     - group: admissionregistration.k8s.io
       kind: ValidatingWebhookConfiguration
-      name: victoria-k8s-stack-admission
+      name: vm-k8s-victoria-metrics-operator-admission
       jqPathExpressions:
         - ".webhooks[]?.clientConfig.caBundle"
