@@ -29,6 +29,12 @@ spec:
   ignoreDifferences:
     - group: ""
       kind: Secret
+      name: vm-k8s-grafana
+      namespace: victoria-k8s-stack
+      jsonPointers:
+        - /data/admin-password
+    - group: ""
+      kind: Secret
       name: victoria-k8s-stack-validation
       namespace: kube-system
       jsonPointers:
