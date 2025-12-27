@@ -23,13 +23,13 @@ vmalert:
     affinity:
       podAntiAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
-        - labelSelector:
-            matchExpressions:
-            - key: app.kubernetes.io/name
-              operator: In
-              values:
-              - vmsingle
-          topologyKey: "kubernetes.io/hostname"
+          - labelSelector:
+              matchExpressions:
+                - key: app.kubernetes.io/name
+                  operator: In
+                  values:
+                    - vmsingle
+            topologyKey: "kubernetes.io/hostname"
 
 kubeControllerManager:
   enabled: false
@@ -55,3 +55,5 @@ grafana:
     server:
       domain: grafana.apps.k8s.vdude.io
       root_url: https://grafana.apps.k8s.vdude.io
+defaultRules:
+  create: false
