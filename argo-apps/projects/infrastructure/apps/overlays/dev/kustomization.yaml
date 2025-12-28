@@ -14,6 +14,7 @@ resources:
   - kong-app.yaml
   - kubevip-app.yaml
   - longhorn-app.yaml
+  - system-upgrade-controller-app.yaml
   # - kuma-app.yaml
   # - loki-app.yaml
   # - minio-operator-app.yaml

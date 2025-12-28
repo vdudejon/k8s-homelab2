@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: system-upgrade-controller
+  namespace: argo-cd
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
+spec:
+  project: infrastructure
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: system-upgrade
+  source:
+    repoURL: 'https://github.com/vdudejon/k8s-homelab2.git'
+    targetRevision: main
+    path: argo-apps/projects/infrastructure/system-upgrade-controller/overlays/dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
