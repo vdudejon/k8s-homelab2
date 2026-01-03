@@ -1,25 +1,31 @@
-redis:
-  persistence:
-    enabled: true
-    storageClass: longhorn
-paperless:
+persistence:
   data:
-    persistence:
-      enabled: true
-      storageClass: longhorn
-  media:
-    persistence:
-      enabled: true
-      storageClass: longhorn
-  export:
-    persistence:
-      enabled: true
-      storageClass: longhorn
-  consume:
-    persistence:
-      enabled: true
-      storageClass: longhorn
-postgresql:
-  persistence:
     enabled: true
     storageClass: longhorn
+    size: 1Gi
+  media:
+    enabled: true
+    storageClass: longhorn
+    size: 8Gi
+  export:
+    enabled: true
+    storageClass: longhorn
+    size: 1Gi
+  consume:
+    enabled: true
+    storageClass: longhorn
+    size: 4Gi
+postgresql:
+  enabled: true
+  primary:
+    persistence:
+      enabled: true
+      storageClass: longhorn
+      size: 8Gi
+redis:
+  enabled: true
+  master:
+    persistence:
+      enabled: true
+      storageClass: longhorn
+      size: 2Gi

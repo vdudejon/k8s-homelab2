@@ -6,6 +6,6 @@ resources:
 helmCharts:
   - name: paperless-ngx
     releaseName: paperless
-    repo: https://charts.worli.dev
+    repo: https://charts.gabe565.com
     valuesFile: values.yaml
     namespace: paperless
