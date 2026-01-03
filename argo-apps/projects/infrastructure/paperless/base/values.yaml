@@ -37,21 +37,21 @@ redis:
       enabled: true
       storageClass: longhorn
       size: 2Gi
-# ingress:
-#   main:
-#     enabled: true
-#     annotations:
-#       cert-manager.io/cluster-issuer: cloudflare-issuer
-#     ingressClassName: kong
-#     hosts:
-#       - host: paperless.apps.k8s.vdude.io
-#         paths:
-#           - path: /
-#       - host: paperless.vdude.io
-#         paths:
-#           - path: /
-#     tls:
-#       - secretName: paperlesspaperless-cert
-#         hosts:
-#           - paperless.apps.k8s.vdude.io
-#           - paperless.vdude.io
+ingress:
+  main:
+    enabled: true
+    annotations:
+      cert-manager.io/cluster-issuer: cloudflare-issuer
+    ingressClassName: kong
+    hosts:
+      - host: paperless.apps.k8s.vdude.io
+        paths:
+          - path: /
+      - host: paperless.vdude.io
+        paths:
+          - path: /
+    tls:
+      - secretName: paperlesspaperless-cert
+        hosts:
+          - paperless.apps.k8s.vdude.io
+          - paperless.vdude.io
