@@ -37,6 +37,8 @@ redis:
       enabled: true
       storageClass: longhorn
       size: 2Gi
+    existingSecret: paperless-redis
+    existingSecretPasswordKey: redis-password
 ingress:
   main:
     enabled: true
