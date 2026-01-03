@@ -1,0 +1,25 @@
+redis:
+  persistence:
+    enabled: true
+    storageClass: longhorn
+paperless:
+  data:
+    persistence:
+      enabled: true
+      storageClass: longhorn
+  media:
+    persistence:
+      enabled: true
+      storageClass: longhorn
+  export:
+    persistence:
+      enabled: true
+      storageClass: longhorn
+  consume:
+    persistence:
+      enabled: true
+      storageClass: longhorn
+postgresql:
+  persistence:
+    enabled: true
+    storageClass: longhorn

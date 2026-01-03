@@ -29,3 +29,4 @@ resources:
   - valheim-app.yaml
   - minecraft-aiden-app.yaml
   - victoria-logs-app.yaml
+  - paperless-app.yaml
