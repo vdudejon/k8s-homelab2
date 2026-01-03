@@ -1,6 +1,6 @@
 vmalert:
   defaultRules:
-    create: false
+    create: true
   spec:
     affinity:
       podAntiAffinity:
