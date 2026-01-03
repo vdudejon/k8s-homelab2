@@ -2,18 +2,22 @@ persistence:
   data:
     enabled: true
     storageClass: longhorn
+    accessMode: ReadWriteOnce
     size: 1Gi
   media:
     enabled: true
     storageClass: longhorn
+    accessMode: ReadWriteOnce
     size: 8Gi
   export:
     enabled: true
     storageClass: longhorn
+    accessMode: ReadWriteOnce
     size: 1Gi
   consume:
     enabled: true
     storageClass: longhorn
+    accessMode: ReadWriteOnce
     size: 4Gi
 postgresql:
   enabled: true
