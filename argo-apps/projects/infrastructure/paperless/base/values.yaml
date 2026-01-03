@@ -55,3 +55,8 @@ ingress:
         hosts:
           - paperless.apps.k8s.vdude.io
           - paperless.vdude.io
+
+env:
+  PAPERLESS_URL: "https://paperless.apps.k8s.vdude.io"
+  PAPERLESS_CSRF_TRUSTED_ORIGINS: "https://paperless.apps.k8s.vdude.io,https://paperless.vdude.io"
+  PAPERLESS_ALLOWED_HOSTS: "paperless.apps.k8s.vdude.io,paperless.vdude.io,localhost"
