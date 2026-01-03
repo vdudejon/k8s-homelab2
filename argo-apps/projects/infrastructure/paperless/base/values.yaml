@@ -20,6 +20,8 @@ persistence:
     accessMode: ReadWriteOnce
     size: 4Gi
 postgresql:
+  image:
+    tag: "latest"
   enabled: true
   primary:
     persistence:
@@ -27,6 +29,8 @@ postgresql:
       storageClass: longhorn
       size: 8Gi
 redis:
+  image:
+    tag: "latest"
   enabled: true
   master:
     persistence:
