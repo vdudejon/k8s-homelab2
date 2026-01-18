@@ -14,7 +14,7 @@ spec:
   source:
     repoURL: "https://github.com/vdudejon/k8s-homelab2.git"
     targetRevision: main
-    path: argo-apps/projects/infrastructure/victoria-logs/overlays/dev
+    path: argo-apps/projects/infrastructure/victoria-traces/overlays/dev
   syncPolicy:
     automated:
       prune: true
