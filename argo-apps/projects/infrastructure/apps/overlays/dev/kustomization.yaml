@@ -24,10 +24,10 @@ resources:
   - sealed-secrets-app.yaml
   # - vault-app.yaml
   # - vault-secrets-operator-app.yaml
-  - victoria-k8s-stack-app.yaml
   # - victoriametrics-app.yaml # Omitted on purpose
   - valheim-app.yaml
   - minecraft-aiden-app.yaml
-  - victoria-logs-app.yaml
   - paperless-app.yaml
-  - victoria-traces-app.yaml
+  # - victoria-k8s-stack-app.yaml
+  # - victoria-logs-app.yaml
+  # - victoria-traces-app.yaml
