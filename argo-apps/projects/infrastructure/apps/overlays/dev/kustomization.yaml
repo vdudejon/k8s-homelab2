@@ -30,3 +30,4 @@ resources:
   - minecraft-aiden-app.yaml
   - victoria-logs-app.yaml
   - paperless-app.yaml
+  - victoria-traces-app.yaml
