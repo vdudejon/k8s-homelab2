@@ -6,7 +6,7 @@ metadata:
   labels:
     type: "nightly-backup"
 spec:
-  cron: "15 18 * * *"
+  cron: "30 18 * * *"
   task: "backup"
   groups:
     - default
