@@ -9,7 +9,7 @@ resources:
   - cert-manager-app.yaml
   - csi-driver-nfs-app.yaml
   # - external-secrets-app.yaml
-  - grafana-alloy-app.yaml
+  # - grafana-alloy-app.yaml
   # - grafana-app.yaml # Omitted on purpose
   - kong-app.yaml
   - kubevip-app.yaml
