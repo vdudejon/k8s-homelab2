@@ -1,0 +1,14 @@
+apiVersion: longhorn.io/v1beta2
+kind: RecurringJob
+metadata:
+  name: nightly-backup
+  namespace: longhorn
+  labels:
+    type: "nightly-backup"
+spec:
+  cron: "0 3 * * *"
+  task: "backup"
+  groups:
+    - default
+  retain: 7
+  concurrency: 2
