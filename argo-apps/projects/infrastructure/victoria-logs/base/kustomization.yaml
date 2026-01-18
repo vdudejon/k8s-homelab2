@@ -11,3 +11,10 @@ helmCharts:
     valuesFile: values.yaml
     namespace: victoria-logs
     includeCRDs: true
+  - name: victoria-logs-collector
+    # version: 0.2.6
+    releaseName: victoria-logs-collector
+    repo: https://victoriametrics.github.io/helm-charts/
+    valuesFile: collector-values.yaml
+    namespace: victoria-logs
+    includeCRDs: true
