@@ -28,6 +28,6 @@ resources:
   - valheim-app.yaml
   - minecraft-aiden-app.yaml
   - paperless-app.yaml
-  # - victoria-k8s-stack-app.yaml
-  # - victoria-logs-app.yaml
+  - victoria-k8s-stack-app.yaml
+  - victoria-logs-app.yaml
   # - victoria-traces-app.yaml
