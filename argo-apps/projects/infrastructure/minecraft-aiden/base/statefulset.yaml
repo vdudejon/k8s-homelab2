@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: minecraft-server
-          image: itzg/minecraft-server:latest # Or specific version if needed
+          image: itzg/minecraft-server:26.3 # Or specific version if needed
           env:
             - name: EULA
               value: "TRUE"
